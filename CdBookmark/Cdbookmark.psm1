@@ -12,3 +12,6 @@ Export-ModuleMember `
         'Remove-CdBookmark'
     )
 
+Set-Alias cdb Set-CdBookmark
+Export-ModuleMember -Alias cdb
+

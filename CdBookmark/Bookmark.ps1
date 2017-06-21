@@ -1,11 +1,9 @@
 Set-Variable -Name "config" -Value ([string]"$HOME/.cdbookmark") -Scope script -Option constant
 Set-Variable -Name "cdBookmark" -Value ([hashtable]@{}) -Scope global
 function save {
-    Write-Host "save"
     $global:cdBookmark | ConvertTo-Json | Out-File $script:config
 }
 function load {
-    Write-Host "load $config"
     $o = Get-Content $script:config -ErrorAction SilentlyContinue -ErrorVariable $e | ConvertFrom-Json
     if ($e) {
         $global:cdBookmark = $null
@@ -16,7 +14,6 @@ function load {
 }
 
 function Get-CdBookmark {
-    Write-Host "Get-CdBookmark"
     Write-Output $global:cdBookmark
 
     <#
@@ -38,11 +35,9 @@ function Set-CdBookmark {
     [CmdletBinding()]
     Param(
     )
-    Write-Host "Set-CdBookmark"
 
     # https://blogs.technet.microsoft.com/pstips/2014/06/09/dynamic-validateset-in-a-dynamic-parameter/
     DynamicParam {
-        Write-Host "Set-CdBookmark DynamicParam"
         # Set the dynamic parameters' name
         $ParameterName = 'Name'
             
@@ -73,15 +68,12 @@ function Set-CdBookmark {
         return $RuntimeParameterDictionary
     }
     begin {
-        Write-Host "Set-CdBookmark begin"
         # Bind the parameter to a friendly variable
         $Name = $PsBoundParameters[$ParameterName]
     }
 
     process {
-        Write-Host "Set-CdBookmark process"
         Set-Location $global:cdBookmark[$Name]
-
     }
     <#
 .Synopsis
@@ -100,7 +92,6 @@ function Add-CdBookmark {
         $Name,
         $Path
     )
-    Write-Host "Add-CdBookmark"
 
     $global:cdBookmark[$Name] = (Resolve-Path $Path).Path
     save
@@ -124,7 +115,6 @@ function Remove-CdBookmark {
         [string]$Name,
         [switch]$All = $false
     )
-    Write-Host "Add-CdBookmark"
 
     if ($All) {
         $global:cdBookmark = [hashtable]@{}

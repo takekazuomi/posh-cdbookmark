@@ -7,11 +7,13 @@ load
 Export-ModuleMember `
     -Function @(
         'Get-CdBookmark'
-        'Set-CdBookmark'
+        'Use-CdBookmark'
         'Add-CdBookmark'
         'Remove-CdBookmark'
     )
 
-Set-Alias cdb Set-CdBookmark
+Set-Alias cdb Use-CdBookmark
 Export-ModuleMember -Alias cdb
+Set-Alias Set-CdBookmark Add-CdBookmark
+Export-ModuleMember -Alias Set-CdBookmark
 

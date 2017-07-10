@@ -30,7 +30,7 @@ function Get-CdBookmark {
 #>
 
 }
-function Set-CdBookmark {
+function Use-CdBookmark {
 
     [CmdletBinding()]
     Param(

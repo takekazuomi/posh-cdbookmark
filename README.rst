@@ -10,11 +10,11 @@ https://github.com/mollifier/cd-bookmark
 
 How to install
 ==============
-You can install from PowerShell Gallery. `Cdbookmark <https://www.powershellgallery.com/packages/posh-cdbookmark>`_
+You can install from PowerShell Gallery. `posh-cdbookmark <https://www.powershellgallery.com/packages/posh-cdbookmark>`_
 
 .. code:: posh
 
-Install-Module -Name posh-cdbookmark
+   Install-Module -Name posh-cdbookmark
 
 
 create bookmark
@@ -22,7 +22,7 @@ create bookmark
 
 .. code:: posh
 
-   Add-Cdbookmark -Name foo -Path .
+   $ Add-Cdbookmark -Name foo -Path .
 
 
 cd bookmark directory
@@ -30,7 +30,7 @@ cd bookmark directory
 
 .. code:: posh
 
-   cdb foo
+   $ cdb foo
 
 
 remove bookmark
@@ -38,7 +38,7 @@ remove bookmark
 
 .. code:: posh
 
-   Remove-CdBookmark foo
+   $ Remove-CdBookmark foo
 
 
 list bookmarks
@@ -60,11 +60,11 @@ Additional Information
 ======================
 Bookmark is stored in $HOME/.cdbookmark.
 
+.. code:: posh
 
-C:\Users\takekazu
-$ cat C:\Users\takekazu\.cdbookmark
-{
-    "tech.c":  "C:\\home\\takekazu\\Dropbox\\project\\tech.c",
-    "cdb":  "C:\\GitHub\\takekazuomi\\Cdbookmark",
-    "kyrtblog":  "C:\\home\\takekazu\\Dropbox\\kyrt\\site"
-}
+   $ cat C:\Users\takekazu\.cdbookmark
+   {
+      "tech.c":  "C:\\home\\takekazu\\Dropbox\\project\\tech.c",
+      "cdb":  "C:\\GitHub\\takekazuomi\\Cdbookmark",
+      "kyrtblog":  "C:\\home\\takekazu\\Dropbox\\kyrt\\site"
+   }
